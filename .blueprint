@@ -1,0 +1,47 @@
+created:
+    - app/Http/Controllers/usersController.php
+    - app/Http/Controllers/kategoriController.php
+    - app/Http/Controllers/barangController.php
+    - app/Http/Controllers/status_pengirimanController.php
+    - app/Http/Controllers/orderController.php
+    - app/Http/Controllers/order_detailController.php
+    - database/factories/UsersFactory.php
+    - database/factories/KategoriFactory.php
+    - database/factories/BarangFactory.php
+    - database/factories/StatusPengirimanFactory.php
+    - database/factories/OrderFactory.php
+    - database/factories/OrderDetailFactory.php
+    - database/migrations/2024_02_22_103522_create_users_table.php
+    - database/migrations/2024_02_22_103523_create_kategoris_table.php
+    - database/migrations/2024_02_22_103524_create_barangs_table.php
+    - database/migrations/2024_02_22_103525_create_status_pengirimen_table.php
+    - database/migrations/2024_02_22_103526_create_orders_table.php
+    - database/migrations/2024_02_22_103527_create_order_details_table.php
+    - app/Models/users.php
+    - app/Models/kategori.php
+    - app/Models/barang.php
+    - app/Models/status_pengiriman.php
+    - app/Models/order.php
+    - app/Models/order_detail.php
+    - tests/Feature/Http/Controllers/usersControllerTest.php
+    - tests/Feature/Http/Controllers/kategoriControllerTest.php
+    - tests/Feature/Http/Controllers/barangControllerTest.php
+    - tests/Feature/Http/Controllers/status_pengirimanControllerTest.php
+    - tests/Feature/Http/Controllers/orderControllerTest.php
+    - tests/Feature/Http/Controllers/order_detailControllerTest.php
+    - app/Http/Requests/userStoreRequest.php
+    - app/Http/Requests/userUpdateRequest.php
+    - resources/views/user/index.blade.php
+    - resources/views/user/create.blade.php
+    - resources/views/user/show.blade.php
+    - resources/views/user/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    users: { name: 'string:50', email: 'string unique', password: string, alamat: 'text nullable', nohp: 'string:16 nullable', foto: string, level: 'enum:admin,user default:pending', aktif: 'enum:Y,N default:N', softdeletes: softDeletes }
+    kategori: { nama_kategori: string, gambar: 'string nullable' }
+    barang: { kategori_id: foreign, nama_barang: string, harga: double, stok: int, keterangan: 'text nullable', gambar: string, gambar2: 'json nullable' }
+    status_pengiriman: { order_id: foreign, status_kirim: string, keterangan: string }
+    order: { user_id: foreign, tanggal: date, status: string, kode: int, jumlah_harga: int, jumlah_barang: 'int nullable', token_midtrans: 'string nullable', url_bayar: 'string nullable', bukti_bayar: 'string nullable', catatan: 'string nullable' }
+    order_detail: { barang_id: foreign, order_id: foreign, jumlah: int, harga: double }

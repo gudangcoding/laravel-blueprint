@@ -1,0 +1,61 @@
+models:
+  users:
+    name: string:50
+    email: string unique
+    password: string
+    alamat: text nullable 
+    nohp: string:16 nullable 
+    foto: string
+    level: enum:admin,user default:pending
+    aktif: enum:Y,N default:N
+    softDeletes
+  kategori:
+    nama_kategori: string
+    gambar: string nullable
+    softDeletes
+  barang:
+    kategori_id: foreign
+    nama_barang: string
+    harga: double
+    stok: int
+    keterangan: text nullable
+    gambar: string
+    gambar2: json nullable
+    softDeletes
+  status_pengiriman:
+    order_id: foreign
+    status_kirim: string
+    keterangan: string
+    softDeletes
+  order:
+    user_id: foreign
+    tanggal: date
+    status: string
+    kode: int
+    jumlah_harga: int
+    jumlah_barang: int nullable
+    token_midtrans: string nullable
+    url_bayar: string nullable
+    bukti_bayar: string nullable
+    catatan: string nullable
+    softDeletes
+  order_detail:
+    barang_id: foreign
+    order_id: foreign
+    jumlah: int
+    harga: double
+    softDeletes
+
+controllers:
+  users:
+    resource
+  kategori:
+    resource: web, api
+  barang:
+    resource: web, api
+  status_pengiriman:
+    resource: web, api
+  order:
+    resource: web, api
+  order_detail:
+    resource: web, api
