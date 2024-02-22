@@ -1,5 +1,5 @@
 models:
-  users:
+  Users:
     name: string:50
     email: string unique
     password: string
@@ -9,11 +9,11 @@ models:
     level: enum:admin,user default:pending
     aktif: enum:Y,N default:N
     softDeletes
-  kategori:
+  Kategori:
     nama_kategori: string
     gambar: string nullable
     softDeletes
-  barang:
+  Barang:
     kategori_id: foreign
     nama_barang: string
     harga: double
@@ -22,12 +22,12 @@ models:
     gambar: string
     gambar2: json nullable
     softDeletes
-  status_pengiriman:
+  Status_pengiriman:
     order_id: foreign
     status_kirim: string
     keterangan: string
     softDeletes
-  order:
+  Order:
     user_id: foreign
     tanggal: date
     status: string
@@ -40,7 +40,7 @@ models:
     bukti_bayar: string nullable
     catatan: string nullable
     softDeletes
-  order_detail:
+  OrderDetail:
     barang_id: foreign
     order_id: foreign
     jumlah: int
@@ -49,28 +49,28 @@ models:
 
 controllers:
   # generate controller api terlebih dahulu, lalu copykan ke folder api, erase lalu generate controller web
-  users:
+  Users:
     resource: api
-  kategori:
+  Kategori:
     resource: api
-  barang:
+  Barang:
     resource: api
-  status_pengiriman:
+  Status_pengiriman:
     resource: api
-  order:
+  Order:
     resource: api
-  order_detail:
+  OrderDetail:
     resource: api
 
-  # users:
+  # Users:
   #   resource
-  # kategori:
+  # Kategori:
   #   resource
-  # barang:
+  # Barang:
   #   resource
-  # status_pengiriman:
+  # Status_pengiriman:
   #   resource
-  # order:
+  # Order:
   #   resource
-  # order_detail:
+  # OrderDetail:
   #   resource
