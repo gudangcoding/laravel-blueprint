@@ -47,15 +47,29 @@ models:
     softDeletes
 
 controllers:
+  # generate controller api terlebih dahulu, lalu copykan ke folder api, erase lalu generate controller web
   users:
-    resource
+    resource: api
   kategori:
-    resource: web, api
+    resource:  api
   barang:
-    resource: web, api
+    resource:  api
   status_pengiriman:
-    resource: web, api
+    resource:  api
   order:
-    resource: web, api
+    resource:  api
   order_detail:
-    resource: web, api
+    resource:  api
+
+  # users:
+  #   resource
+  # kategori:
+  #   resource
+  # barang:
+  #   resource
+  # status_pengiriman:
+  #   resource
+  # order:
+  #   resource
+  # order_detail:
+  #   resource
