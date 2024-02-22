@@ -34,6 +34,7 @@ models:
     kode: int
     jumlah_harga: int
     jumlah_barang: int nullable
+    type_bayar: enum:cash,transfer,cod default:transfer
     token_midtrans: string nullable
     url_bayar: string nullable
     bukti_bayar: string nullable
@@ -51,15 +52,15 @@ controllers:
   users:
     resource: api
   kategori:
-    resource:  api
+    resource: api
   barang:
-    resource:  api
+    resource: api
   status_pengiriman:
-    resource:  api
+    resource: api
   order:
-    resource:  api
+    resource: api
   order_detail:
-    resource:  api
+    resource: api
 
   # users:
   #   resource
